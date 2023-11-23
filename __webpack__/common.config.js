@@ -124,6 +124,8 @@ module.exports = {
       types: path.resolve(__dirname, "..", "src", "types"),
       routes: path.resolve(__dirname, "..", "src", "routes"),
       store: path.resolve(__dirname, "..", "src", "store"),
+      utils: path.resolve(__dirname, "..", "src", "utils"),
+      hooks: path.resolve(__dirname, "..", "src", "hooks"),
     },
   },
   module: {

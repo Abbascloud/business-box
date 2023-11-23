@@ -1,0 +1,39 @@
+@use "sass:map";
+@import 'assets/styles/variables.scss';
+
+.input {
+    position: relative;
+    padding: 20px 0px;
+
+    &TextFieldWrapper {
+        border: 1px solid map.get($colors, main);
+        background-color: map.get($colors, white);
+        border-radius: 8px;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &ErrorBorder {
+        border: 1px solid map.get($colors, danger);
+    }
+
+    &ErrorMessage {
+        bottom: 0;
+        position: absolute;
+        color: map.get($colors, danger);
+    }
+
+    &HelperText {
+        top: 0;
+        position: absolute;
+    }
+
+    &TextField {
+        width: 100%;
+        outline: none;
+        border: none;
+    }
+
+}

@@ -10,6 +10,8 @@
         "types": ["types"],
         "routes": ["routes"],
         "store": ["store"],
+        "hooks":["hooks"],
+        "utils":["utils"]
     },
     "target": "es5",
     "rootDirs": ["src", "__jest__"],

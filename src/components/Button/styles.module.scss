@@ -1,0 +1,23 @@
+@use "sass:map";
+@import 'assets/styles/variables.scss';
+
+.button {
+    background-color: map.get($colors, main);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    cursor: pointer;
+    width: 100px;
+    color: map.get($colors, white);
+
+    & span {
+        margin: 0 auto;
+    }
+}
+
+.disabled {
+    background-color: map.get($colors, dark-grey);
+    cursor: not-allowed
+}

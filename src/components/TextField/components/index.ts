@@ -1,0 +1,1 @@
+export { IsVisibleIcon } from "./IsVisibleIcon";

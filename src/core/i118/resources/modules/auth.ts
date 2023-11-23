@@ -7,7 +7,7 @@ export const auth = {
             loginErrorMessage: "Не верный формат почты",
             passwordHelperText: "Введите пароль",
             passwordErrorMessage: "Слишком короткий пароль",
-            capsLockError: "нажата клавиша CapsLock"
+            capsLockError: "нажата клавиша CapsLock",
         }
     }
 };

@@ -79,7 +79,7 @@ export const Auth = () => {
           )}
         />
         <CheckBox />
-        <Button disabled={!formState.isValid} text={t("submitButton")} />
+        <Button text={t("submitButton")} />
       </form>
     </div>
   );

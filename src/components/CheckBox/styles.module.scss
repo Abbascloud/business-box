@@ -1,0 +1,43 @@
+@use "sass:map";
+@import 'assets/styles/variables.scss';
+
+.checkBoxWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkBox {
+    display: none;
+
+
+
+    &:checked+label {
+        .checkIcon {
+            display: block;
+        }
+    }
+}
+
+.checkBoxLabel {
+    border: 1px solid map.get($colors, main);
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+
+
+
+
+    .checkIcon {
+        display: none;
+    }
+
+    & svg {
+        color: map.get($colors, main);
+    }
+
+}

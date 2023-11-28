@@ -4,5 +4,4 @@ export interface ICheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
     errorMessage?: string,
     label?: string,
     helperText?: string,
-    type?: "text"
 }

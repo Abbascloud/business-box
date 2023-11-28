@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import { TextField, Button, CheckBox } from "components";
@@ -17,18 +17,19 @@ const cx = makeClassNames(styles);
 
 export const Auth = () => {
   const t = useTextMaker("auth.form");
-
+  const navigate = useNavigate();
   const { handleSubmit, register, control, formState } = useForm({
     defaultValues: DEFAULT_VALUES,
     resolver: VALIDATION_SCHEMA,
   });
-  useEffect(() => {
-    console.log(formState);
-  }, [formState]);
+
   const { capsLockWarning, capsLookWatcher } = useCapsLookWatcher();
 
-  const onSubmit: SubmitHandler<TAuthForm> = (data) => console.log(data);
-  //Todo добавить функцию показать пароль
+  const onSubmit: SubmitHandler<TAuthForm> = () => {
+    sessionStorage.setItem("Zen-Door-Token", String(Math.random()));
+    navigate("/");
+  };
+
   return (
     <div className={styles.auth}>
       <form className={styles.authForm} onSubmit={handleSubmit(onSubmit)}>
@@ -78,7 +79,7 @@ export const Auth = () => {
             />
           )}
         />
-        <CheckBox />
+        <CheckBox label={t("rememberMe")} />
         <Button text={t("submitButton")} />
       </form>
     </div>

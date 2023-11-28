@@ -11,7 +11,7 @@ export const DEFAULT_VALUES: TAuthForm = {
 
 export const VALIDATION_SCHEMA = yupResolver(yup
     .object({
-        [EAuthFormFields.email]: yup.string().email(i18n.t("auth.form.loginErrorMessage")).required(i18n.t("common.form.requireError")),
-        [EAuthFormFields.password]: yup.string().min(6, i18n.t("auth.form.passwordErrorMessage")).required(i18n.t("common.form.requireError")),
+        [EAuthFormFields.email]: yup.string().email(i18n.t("auth.form.loginErrorMessage")).required(i18n.t("common.errors.requireError")),
+        [EAuthFormFields.password]: yup.string().min(6, i18n.t("auth.form.passwordErrorMessage")).required(i18n.t("common.errors.requireError")),
     })
     .required());

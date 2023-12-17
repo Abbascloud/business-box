@@ -5,13 +5,19 @@ import * as styles from "./styles.module.scss";
 
 const cx = makeClassNames(styles);
 
-export const Button: FC<IButtonProps> = ({ className, text, ...props }) => {
+export const Button: FC<IButtonProps> = ({
+  className,
+  text,
+  rightIcon,
+  ...props
+}) => {
   return (
     <button
       className={cx(className, { button: true, disabled: props.disabled })}
       {...props}
     >
       <span>{text}</span>
+      {rightIcon?.()}
     </button>
   );
 };

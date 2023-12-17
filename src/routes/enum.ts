@@ -1,5 +1,6 @@
 export enum E_ROUTES {
   UNKNOWN = "*",
   HOME = "home",
-  LOGIN = "login/",
+  EMPLOYEES = "employees",
+  LOGIN = "login",
 }

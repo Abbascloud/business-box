@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
@@ -18,7 +18,7 @@ const cx = makeClassNames(styles);
 export const Auth = () => {
   const t = useTextMaker("auth.form");
   const navigate = useNavigate();
-  const { handleSubmit, register, control, formState } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: DEFAULT_VALUES,
     resolver: VALIDATION_SCHEMA,
   });
@@ -27,7 +27,7 @@ export const Auth = () => {
 
   const onSubmit: SubmitHandler<TAuthForm> = () => {
     sessionStorage.setItem("Zen-Door-Token", String(Math.random()));
-    navigate("/");
+    navigate("/employees");
   };
 
   return (
@@ -45,7 +45,6 @@ export const Auth = () => {
             fieldState: { error },
           }) => (
             <TextField
-              {...register("password")}
               value={value}
               name={name}
               type={ETextFieldTypes.text}
@@ -66,7 +65,6 @@ export const Auth = () => {
             fieldState: { error },
           }) => (
             <TextField
-              {...register("password")}
               value={value}
               name={name}
               type={ETextFieldTypes.password}

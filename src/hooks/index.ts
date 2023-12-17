@@ -3,3 +3,4 @@ export { useTextMaker } from "./useTextMaker";
 export { useCapsLookWatcher } from "./useCapsLookWatcher";
 export { useToggle } from "./useToggle";
 export { useAuth } from "./useAuth";
+export { useOutsideClick } from "./useOutsideClick";

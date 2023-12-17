@@ -27,7 +27,11 @@
         padding: 20px;
         background-color: map.get($colors, white);
         border-radius: 10px;
-        gap: 10px;
+        gap: 5px;
         width: 300px;
+
+        @media screen and (max-width:map.get($screen, md)) {
+            gap: 18px;
+        }
     }
 }

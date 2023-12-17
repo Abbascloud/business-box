@@ -20,7 +20,7 @@
     }
 
     &ErrorMessage {
-        bottom: 0;
+        top: 56px;
         position: absolute;
         color: map.get($colors, danger);
     }

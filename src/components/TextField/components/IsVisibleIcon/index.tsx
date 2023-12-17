@@ -1,7 +1,6 @@
 import React from "react";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import { Icon } from "components";
+import { EIcons } from "enums";
 export const IsVisibleIcon = ({
   isVisible,
   toggleVisiblePassword,
@@ -10,8 +9,8 @@ export const IsVisibleIcon = ({
   toggleVisiblePassword: () => void;
 }) => {
   return isVisible ? (
-    <VisibilityOffIcon onClick={toggleVisiblePassword} />
+    <Icon name={EIcons.visibleOf} onClick={toggleVisiblePassword} />
   ) : (
-    <VisibilityIcon onClick={toggleVisiblePassword} />
+    <Icon name={EIcons.visibleOn} onClick={toggleVisiblePassword} />
   );
 };

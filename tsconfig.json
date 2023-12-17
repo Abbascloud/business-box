@@ -11,7 +11,8 @@
         "routes": ["routes"],
         "store": ["store"],
         "hooks":["hooks"],
-        "utils":["utils"]
+        "utils":["utils"],
+        "api":["api"]
     },
     "target": "es5",
     "rootDirs": ["src", "__jest__"],

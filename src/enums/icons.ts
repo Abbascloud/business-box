@@ -3,5 +3,6 @@ export enum EIcons {
     add = "add",
     check = "check",
     visibleOn = "visibleOn",
-    visibleOf = "visibleOf"
+    visibleOf = "visibleOf",
+    remove = "remove"
 }

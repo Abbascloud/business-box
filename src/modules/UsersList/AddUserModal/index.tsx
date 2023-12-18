@@ -9,6 +9,7 @@ import { EAddUserForm } from "../enums";
 import { useTextMaker } from "hooks";
 
 import * as styles from "./styles.module.scss";
+import { useAddUserMutation } from "api/users";
 
 export const AddUserModal = ({ isOpen, setIsOpen }: AddUserModalProps) => {
   const t = useTextMaker("userList.addUserForm");
@@ -16,7 +17,10 @@ export const AddUserModal = ({ isOpen, setIsOpen }: AddUserModalProps) => {
     defaultValues: DEFAULT_VALUES,
     resolver: VALIDATION_SCHEMA,
   });
-  const onSubmit: SubmitHandler<TAddUserConfig> = () => {
+  const [addUser] = useAddUserMutation();
+
+  const onSubmit: SubmitHandler<TAddUserConfig> = (values) => {
+    addUser(values);
     setIsOpen(false);
   };
   return (

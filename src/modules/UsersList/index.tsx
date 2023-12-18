@@ -1,29 +1,36 @@
 import React, { useState } from "react";
-import { Icon } from "components";
-// import { UsersResponse } from "api/users/types";
-// import { EUserStatus } from "api/users/enums";
-import { EIcons } from "enums";
-import { Button, Loader } from "components";
-import { AddUserModal } from "./AddUserModal/AddUserModal";
+import { useSelector } from "react-redux";
 
-// const users: UsersResponse = [
-//   { id: 1, name: "Николай", status: EUserStatus.active, controller_id: 1 },
-//   { id: 2, name: "Николай", status: EUserStatus.active, controller_id: 2 },
-//   { id: 3, name: "Николай", status: EUserStatus.active, controller_id: 3 },
-// ];
+import { useGetUsersQuery, useAddUserMutation } from "api/users";
+import { EIcons } from "enums";
+import { Button, Loader, Icon } from "components";
+import { AddUserModal } from "./AddUserModal";
+import { Users } from "./Users";
+import type { RootState } from "store";
+import type { TUsers } from "types";
+
+import * as styles from "./styles.module.scss";
 
 export const UserList = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { isLoading: isInitialLoading } = useGetUsersQuery();
+  const [, { isLoading }] = useAddUserMutation();
+  const users = useSelector<RootState, TUsers>((state) => state.users.users);
+
   return (
-    <Loader isFixed={true} isLoading={false}>
-      <Button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-        text="Добавить"
-        rightIcon={() => <Icon name={EIcons.add} />}
-      />
+    <Loader isFixed={true} isLoading={isInitialLoading || isLoading}>
       <AddUserModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <div className={styles.wrapper}>
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          text="Добавить"
+          rightIcon={() => <Icon name={EIcons.add} />}
+        />
+        <Users users={users} />
+      </div>
     </Loader>
   );
 };

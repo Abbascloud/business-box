@@ -1,0 +1,22 @@
+@use "sass:map";
+@import 'assets/styles/variables.scss';
+
+
+.usersWrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid map.get($colors, main);
+    flex-shrink: 0;
+    width: 100%;
+    padding: 15px;
+    row-gap: 15px;
+
+    & .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 4px;
+        border-bottom: 1px solid map.get($colors, main);
+    }
+}

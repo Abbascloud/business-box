@@ -1,10 +1,14 @@
 import React from "react";
+import { Icon } from "components/Icon";
+import { EIcons } from "enums";
+
+import * as styles from "./styles.module.scss";
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <div>
-        <h2>Footer</h2>
+        <Icon name={EIcons.logo} />
       </div>
     </footer>
   );

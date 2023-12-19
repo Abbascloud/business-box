@@ -5,6 +5,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Logo from "assets/images/icons/zenLogo.svg";
 import { EIcons } from "enums";
 
 interface IconProps {
@@ -24,6 +25,7 @@ export const Icon = ({ name, ...props }: IconProps) => {
           [EIcons.visibleOn]: <VisibilityIcon {...props} />,
           [EIcons.visibleOf]: <VisibilityOffIcon {...props} />,
           [EIcons.remove]: <DeleteIcon {...props} />,
+          [EIcons.logo]: <img src={Logo} alt="logo" />,
         }[name]
       }
     </>

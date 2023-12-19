@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDeleteUserMutation } from "api/users";
 import { Button, Icon } from "components";
 import type { TUsers } from "types";
@@ -8,9 +8,7 @@ import * as styles from "./styles.module.scss";
 
 export const Users = ({ users }: { users: TUsers }) => {
   const [deleteUser, { isLoading }] = useDeleteUserMutation();
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
+
   return (
     <div className={styles.usersWrapper}>
       {users.map((user) => (

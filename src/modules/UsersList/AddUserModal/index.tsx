@@ -23,6 +23,7 @@ export const AddUserModal = ({ isOpen, setIsOpen }: AddUserModalProps) => {
     addUser(values);
     setIsOpen(false);
   };
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

@@ -9,3 +9,8 @@ export type TUser = {
 export type TUsers = Array<TUser>
 
 export type AddUserRequest = { name: string }
+
+export type TUsersStore = {
+    users: TUsers,
+    isLoading: boolean
+}

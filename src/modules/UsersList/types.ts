@@ -3,5 +3,5 @@ export type TAddUserConfig = {
 }
 export type AddUserModalProps = {
     isOpen: boolean,
-    setIsOpen: (value: boolean) => void
+    setIsOpen: (value: boolean) => void,
 }

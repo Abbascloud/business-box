@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { useGetUsersQuery, useAddUserMutation } from "api/users";
+import { useGetUsersQuery } from "api/users";
 import { EIcons } from "enums";
 import { Button, Loader, Icon } from "components";
 import { AddUserModal } from "./AddUserModal";
 import { Users } from "./Users";
 import type { RootState } from "store";
-import type { TUsers } from "types";
+import type { TUsersStore } from "types";
 
 import * as styles from "./styles.module.scss";
 
 export const UserList = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  const { isFetching } = useGetUsersQuery();
 
-  const { isLoading: isInitialLoading } = useGetUsersQuery();
-  const [, { isLoading }] = useAddUserMutation();
-  const users = useSelector<RootState, TUsers>((state) => state.users.users);
+  const { users, isLoading } = useSelector<RootState, TUsersStore>(
+    (state) => state.users
+  );
 
   return (
-    <Loader isFixed={true} isLoading={isInitialLoading || isLoading}>
+    <Loader isFixed={true} isLoading={isFetching || isLoading}>
       <AddUserModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className={styles.wrapper}>
         <Button
